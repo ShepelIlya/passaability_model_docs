@@ -1,0 +1,58 @@
+.. complex_passability_model documentation master file, created by
+   sphinx-quickstart on Thu May  3 15:24:22 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. toctree::
+   :maxdepth: 3
+
+   includereadme
+
+Complex Passability Model Docs
+******************************
+
+.. automodule:: complex_passability_model_py
+
+cloud_corrector.py
+==================
+
+.. automodule:: laser_frame_corrector
+   :members: get_sync_pose_ind, get_quat_trans_transform,
+             get_quat_to_rt_transform, homogeneous_transform,
+             interpolation, poses_interpolation
+
+.. autoclass:: CloudCorrector
+   :members: initialize, transform_cloud
+
+occupancy_grid.py
+=================
+
+.. autoclass:: occupancy_grid.Cell
+   :members: fit, get_state, set_occupancy, get_occupancy
+
+.. autoclass:: occupancy_grid.MultiModalMap
+   :members: initialize, set_thresholds, fit, show_images
+
+.. autoclass:: occupancy_grid.OccupancyMap
+   :members: set_confidence, initialize, update, get_occupancy_map
+
+stereo_matcher.py
+=================
+
+.. autoclass:: stereo_matcher.StereoToPointCloud
+   :members: get_point_cloud
+
+stereo_occupancy_grid.py
+========================
+
+.. autoclass:: stereo_occupancy_grid.SCell
+   :members: fit, get_occupancy
+
+.. autoclass:: stereo_occupancy_grid.StereoHeightMap
+   :members: initialize, set_thresholds, fit
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`

@@ -1,0 +1,767 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Complex Passability Model Docs &#8212; complex_passability_model 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="includereadme.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="includereadme.html" title="&lt;no title&gt;"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">complex_passability_model 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-complex_passability_model_py">
+<span id="complex-passability-model-docs"></span><h1>Complex Passability Model Docs<a class="headerlink" href="#module-complex_passability_model_py" title="Permalink to this headline">¶</a></h1>
+<p>Documentation of python components for building passability model</p>
+<div class="section" id="module-laser_frame_corrector">
+<span id="cloud-corrector-py"></span><h2>cloud_corrector.py<a class="headerlink" href="#module-laser_frame_corrector" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="laser_frame_corrector.get_sync_pose_ind">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">get_sync_pose_ind</code><span class="sig-paren">(</span><em>ts_current</em>, <em>ts_arr</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.get_sync_pose_ind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index of closest timestamp to <em>ts_current</em>  in <em>ts_arr</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ts_current</strong> – key timestamp</li>
+<li><strong>ts_arr</strong> – array of timestamp to find closest</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ind</strong> - index of closest timestamp</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="laser_frame_corrector.get_quat_trans_transform">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">get_quat_trans_transform</code><span class="sig-paren">(</span><em>q0</em>, <em>t0</em>, <em>q1</em>, <em>t1</em>, <em>invert=False</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.get_quat_trans_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns transformations between quaternions and translations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q0</strong> – start quaternion</li>
+<li><strong>t0</strong> – start translation</li>
+<li><strong>q1</strong> – final quaternion</li>
+<li><strong>t1</strong> – final translation</li>
+<li><strong>invert</strong> – if <em>true</em> transformation is from <em>q1, t1</em> to <em>q0, to</em></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>RT matrix</strong> of transformation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="laser_frame_corrector.get_quat_to_rt_transform">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">get_quat_to_rt_transform</code><span class="sig-paren">(</span><em>q0</em>, <em>t0</em>, <em>rt1</em>, <em>invert=False</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.get_quat_to_rt_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns transformations between quaternion and RT matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q0</strong> – start quaternion</li>
+<li><strong>t0</strong> – start translation</li>
+<li><strong>rt1</strong> – final RT matrix</li>
+<li><strong>invert</strong> – if <em>true</em> transformation is from <em>rt1</em> to <em>q0, to</em></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>RT matrix</strong> of transformation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="laser_frame_corrector.homogeneous_transform">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">homogeneous_transform</code><span class="sig-paren">(</span><em>points</em>, <em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.homogeneous_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformation matrix <em>transform</em> to <em>points</em> array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>points</strong> – array with points</li>
+<li><strong>transform</strong> – RT transformation matrix</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>new_points</strong> - transformed points array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="laser_frame_corrector.interpolation">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">interpolation</code><span class="sig-paren">(</span><em>q1</em>, <em>t1</em>, <em>q2</em>, <em>t2</em>, <em>ts1</em>, <em>ts2</em>, <em>ts_sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.interpolation" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – start quaternion</li>
+<li><strong>t1</strong> – start translation</li>
+<li><strong>q2</strong> – final quaternion</li>
+<li><strong>t2</strong> – final translation</li>
+<li><strong>ts1</strong> – start timestamp</li>
+<li><strong>ts2</strong> – end timestamp</li>
+<li><strong>ts_sequence</strong> – array of timestamps.
+For all entries in this array quaternion and translation will be interpolated</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>poses sequence</strong> as array with columns:
+‘<strong>ts qw qx qy qz tx ty tz</strong>’</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="laser_frame_corrector.poses_interpolation">
+<code class="descclassname">laser_frame_corrector.</code><code class="descname">poses_interpolation</code><span class="sig-paren">(</span><em>q_arr</em>, <em>t_arr</em>, <em>ts_arr</em>, <em>ts_left</em>, <em>ts_right</em>, <em>timestamp</em>, <em>cnt=4500</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.poses_interpolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates all poses between <em>ts_left</em> and <em>ts_right</em> in <em>ts_arr</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_arr</strong> – quaternions array</li>
+<li><strong>t_arr</strong> – translations array</li>
+<li><strong>ts_arr</strong> – timestamps array</li>
+<li><strong>ts_left</strong> – start timestamp</li>
+<li><strong>ts_right</strong> – final timestamp</li>
+<li><strong>timestamp</strong> – timestamp for search closest pose</li>
+<li><strong>cnt</strong> – count of verticies of interpolation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>res_poses</strong> - arraay with interpolated poses, as in <a class="reference internal" href="#laser_frame_corrector.interpolation" title="laser_frame_corrector.interpolation"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolation()</span></code></a>
+<strong>closest_pose</strong> - closest pose to <em>timestamp</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="laser_frame_corrector.CloudCorrector">
+<em class="property">class </em><code class="descclassname">laser_frame_corrector.</code><code class="descname">CloudCorrector</code><a class="headerlink" href="#laser_frame_corrector.CloudCorrector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for motion correction of laser dataframes.</p>
+<dl class="method">
+<dt id="laser_frame_corrector.CloudCorrector.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>oxts_df</em>, <em>rt_imu_to_velo</em>, <em>vertical_scans_cnt=4500</em>, <em>angular_resolution=0.0013962634015954637</em>, <em>step=0.0013962634015954637</em>, <em>min_range=0</em>, <em>correction_on=True</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.CloudCorrector.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>oxts_df</strong> (<a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.22.0)"><em>pandas.DataFrame</em></a>) – dataframe with inertial data</li>
+<li><strong>rt_imu_to_velo</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – RT transformation matrix from IMU to lidar</li>
+<li><strong>vertical_scans_cnt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – count of vertical scan planes of lidar</li>
+<li><strong>angular_resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – angular resolution of lidar</li>
+<li><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – interpolation step</li>
+<li><strong>min_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – minimal distance for filtering points</li>
+<li><strong>correction_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – if <em>true</em> use correction algorithm</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="laser_frame_corrector.CloudCorrector.transform_cloud">
+<code class="descname">transform_cloud</code><span class="sig-paren">(</span><em>velo_cloud</em>, <em>ts_start</em>, <em>ts_end</em>, <em>camera_timestamp=None</em>, <em>cloud_coord_sys='cartesian'</em>, <em>imu_coord=False</em><span class="sig-paren">)</span><a class="headerlink" href="#laser_frame_corrector.CloudCorrector.transform_cloud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correct <em>velo_cloud</em> with considering car’s motion.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to specify coordinate system of input points!</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>velo_cloud</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – array n×3 with coordinates of points</li>
+<li><strong>ts_start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – timestamp of first scanned vertical plane of lidar (α=0°)</li>
+<li><strong>ts_end</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – timestamp of last scanned vertical plane of lidar (α=360°)</li>
+<li><strong>camera_timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – timestamp of camera images</li>
+<li><strong>cloud_coord_sys</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – coordinate system of input points array</li>
+<li><strong>imu_coord</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – if <em>true</em> convert points to imu coordinate system</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>cart_pts</strong> - transformed points in cartesian system,</p>
+<p><strong>polar_pts</strong> - transformed points in polar sysstem</p>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)">numpy.ndarray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="occupancy-grid-py">
+<h2>occupancy_grid.py<a class="headerlink" href="#occupancy-grid-py" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="occupancy_grid.Cell">
+<em class="property">class </em><code class="descclassname">occupancy_grid.</code><code class="descname">Cell</code><a class="headerlink" href="#occupancy_grid.Cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that represents cell of occupancy grid with lidar data.</p>
+<dl class="method">
+<dt id="occupancy_grid.Cell.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>points</em>, <em>pos</em>, <em>over</em>, <em>neg</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.Cell.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits cell’s state by given <em>points</em> and thresholds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – array n×3 with coordinates of points</li>
+<li><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – threshold for positive obstacles</li>
+<li><strong>over</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – threshold for overhanging structures</li>
+<li><strong>neg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – threshold for negaative obstacles</li>
+<li><strong>labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – list of labels if points were classified before, e. g. with ground/non-ground segmentation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.Cell.get_occupancy">
+<code class="descname">get_occupancy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.Cell.get_occupancy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple getter of cell’s occupancy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>occupancy</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.Cell.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.Cell.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple getter of cell’s state.</p>
+<p>State can be <strong>occupied (true)</strong> or <strong>free (false)</strong>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>state</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.Cell.set_occupancy">
+<code class="descname">set_occupancy</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.Cell.set_occupancy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of cell’s occupancy value.</p>
+<p>Occupancy is calculated as <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a> of occupancy and <em>val</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – given value of occupancy.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Occupancy value must be in <strong>[0, 1]</strong>!</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="occupancy_grid.MultiModalMap">
+<em class="property">class </em><code class="descclassname">occupancy_grid.</code><code class="descname">MultiModalMap</code><a class="headerlink" href="#occupancy_grid.MultiModalMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that represents local occupancy grid with laser data.</p>
+<dl class="method">
+<dt id="occupancy_grid.MultiModalMap.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>points</em>, <em>pose</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.MultiModalMap.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits local occupancy map by given points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>points</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – array of points from last lidar frame</li>
+<li><strong>pose</strong> – array with shape (1, 8) that contains synced to <em>points</em> quaternion, translation and timestamp</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>occupancy map</strong> - 2-dimensional array with occupancy data in each cell,</p>
+<p><strong>sx, sy</strong> - shift of local map on global map</p>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><p><strong>occupancy map</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>),</p>
+<p><strong>sx, sy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>)</p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.MultiModalMap.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>width=80.0</em>, <em>height=80.0</em>, <em>resolution=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.MultiModalMap.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of map with size and resolution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width of map in meters</li>
+<li><strong>height</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – height of map in meters</li>
+<li><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width and length of single cell in meters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Cell’s resolutions of global (<a class="reference internal" href="#occupancy_grid.OccupancyMap" title="occupancy_grid.OccupancyMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyMap</span></code></a>) and local (<a class="reference internal" href="#occupancy_grid.MultiModalMap" title="occupancy_grid.MultiModalMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiModalMap</span></code></a>,
+<a class="reference internal" href="#stereo_occupancy_grid.StereoHeightMap" title="stereo_occupancy_grid.StereoHeightMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stereo_occupancy_grid.StereoHeightMap</span></code></a>) maps must match exactly!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.MultiModalMap.set_thresholds">
+<code class="descname">set_thresholds</code><span class="sig-paren">(</span><em>pos</em>, <em>over</em>, <em>neg=0</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.MultiModalMap.set_thresholds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter for thresholds for detecting obstacles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – positive obstacle threshold</li>
+<li><strong>over</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – overhanging structure threshold</li>
+<li><strong>neg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – negative obstacle threshold</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.MultiModalMap.show_images">
+<code class="descname">show_images</code><span class="sig-paren">(</span><em>height=True</em>, <em>slope=True</em>, <em>occupancy=True</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.MultiModalMap.show_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show images of multi-modal local terrain map.</p>
+<ul class="simple">
+<li>height map: represents heights of terrain</li>
+<li>slope map: represents steepness of terrain</li>
+<li>occupancy map: represents occupancy values of terrain</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>height</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – if <em>true</em> show height map</li>
+<li><strong>slope</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – if <em>true</em> show slope map</li>
+<li><strong>occupancy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – if <em>true</em> show occupancy map</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="occupancy_grid.OccupancyMap">
+<em class="property">class </em><code class="descclassname">occupancy_grid.</code><code class="descname">OccupancyMap</code><a class="headerlink" href="#occupancy_grid.OccupancyMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that represents global occupancy grid with laser data and stereo data.</p>
+<dl class="method">
+<dt id="occupancy_grid.OccupancyMap.get_occupancy_map">
+<code class="descname">get_occupancy_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.OccupancyMap.get_occupancy_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple getter for global occupancy map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">global <strong>occupancy grid</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)">numpy.ndarray</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.OccupancyMap.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>width=120.0</em>, <em>height=120.0</em>, <em>resolution=0.2</em>, <em>dist_update_threshold=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.OccupancyMap.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializtion of global occupancy map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width of map in meters</li>
+<li><strong>height</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – height of map in meters</li>
+<li><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width and length of single cell in meters</li>
+<li><strong>dist_update_threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – distance threshold for cleaning cell’s data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Cell’s resolutions of global (<a class="reference internal" href="#occupancy_grid.OccupancyMap" title="occupancy_grid.OccupancyMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyMap</span></code></a>) and local (<a class="reference internal" href="#occupancy_grid.MultiModalMap" title="occupancy_grid.MultiModalMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiModalMap</span></code></a>,
+<a class="reference internal" href="#stereo_occupancy_grid.StereoHeightMap" title="stereo_occupancy_grid.StereoHeightMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stereo_occupancy_grid.StereoHeightMap</span></code></a>) maps must match exactly!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.OccupancyMap.set_confidence">
+<code class="descname">set_confidence</code><span class="sig-paren">(</span><em>lidar=0.5</em>, <em>stereo=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.OccupancyMap.set_confidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets confidence values for lidar and stereo data sources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lidar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – lidar confidence value</li>
+<li><strong>stereo</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – stereo confidence value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="occupancy_grid.OccupancyMap.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>occ_map_lidar, occ_map_stereo, sw, w, sh, h, traveled_dist=0, stereo_bounds=[0, 0, 0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#occupancy_grid.OccupancyMap.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates global map by given local maps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>occ_map_lidar</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – occupancy map given by <a class="reference internal" href="#occupancy_grid.MultiModalMap.fit" title="occupancy_grid.MultiModalMap.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultiModalMap.fit()</span></code></a></li>
+<li><strong>occ_map_stereo</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – occupancy map given by <a class="reference internal" href="#stereo_occupancy_grid.StereoHeightMap.fit" title="stereo_occupancy_grid.StereoHeightMap.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">stereo_occupancy_grid.StereoHeightMap.fit()</span></code></a></li>
+<li><strong>sw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – shift of local multi-modal map on global map by x axis</li>
+<li><strong>w</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – width of local multi-modal map</li>
+<li><strong>sh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – shift of local multi-modal map on global map by y axis</li>
+<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – height of local multi-modal map</li>
+<li><strong>traveled_dist</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – traveled distance</li>
+<li><strong>stereo_bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – list of shifts local occupancy grid by stereo data on occupancy grid by lidar data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="stereo-matcher-py">
+<h2>stereo_matcher.py<a class="headerlink" href="#stereo-matcher-py" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="stereo_matcher.StereoToPointCloud">
+<em class="property">class </em><code class="descclassname">stereo_matcher.</code><code class="descname">StereoToPointCloud</code><span class="sig-paren">(</span><em>left</em>, <em>right</em>, <em>path_to_calib</em>, <em>key='stereo23'</em>, <em>to='velo'</em>, <em>range_filter=200</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_matcher.StereoToPointCloud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that converts two rectified images from stereo to 3-dimensional point cloud.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>Stereo matching algorithm and it’s parameters are hardcoded!</em></p>
+</div>
+<p>Initialize paths to data directories and creates RT matrix from <em>key</em> to <em>to</em> coordinate system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>left</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – path to directory with left stereo images</li>
+<li><strong>right</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – path to directory with right stereo images</li>
+<li><strong>path_to_calib</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – path to KITTI calibration files:  calib_cam_to_cam.txt, calib_imu_to_velo.txt,     calib_velo_to_cam.txt</li>
+<li><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – initial coordinate system</li>
+<li><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – final coordinate system</li>
+<li><strong>range_filter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – range for filtering points</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stereo_matcher.StereoToPointCloud.get_point_cloud">
+<code class="descname">get_point_cloud</code><span class="sig-paren">(</span><em>ind</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_matcher.StereoToPointCloud.get_point_cloud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to images to 3D point cloud.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – index of image to convert</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>img</strong> – array n×3 with coordinates of points,<p><strong>clr</strong> – array n×3 with RGB colors of points</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>For gray images color is converting to RGB too.</em></p>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)">numpy.ndarray</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="stereo-occupancy-grid-py">
+<h2>stereo_occupancy_grid.py<a class="headerlink" href="#stereo-occupancy-grid-py" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="stereo_occupancy_grid.SCell">
+<em class="property">class </em><code class="descclassname">stereo_occupancy_grid.</code><code class="descname">SCell</code><a class="headerlink" href="#stereo_occupancy_grid.SCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that represents cell of occupancy grid with stereo data.</p>
+<dl class="method">
+<dt id="stereo_occupancy_grid.SCell.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>points</em>, <em>pos</em>, <em>over</em>, <em>cnt_threshold=5</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_occupancy_grid.SCell.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits cell’s state and occupancy by given <em>points</em> and thresholds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – array n×3 with coordinates of points</li>
+<li><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – threshold for positive obstacles</li>
+<li><strong>over</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – threshold for overhanging structures</li>
+<li><strong>cnt_threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – minimal count of points in cell for analysis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="stereo_occupancy_grid.SCell.get_occupancy">
+<code class="descname">get_occupancy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stereo_occupancy_grid.SCell.get_occupancy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple getter of cell’s occupancy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>occupancy</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stereo_occupancy_grid.StereoHeightMap">
+<em class="property">class </em><code class="descclassname">stereo_occupancy_grid.</code><code class="descname">StereoHeightMap</code><a class="headerlink" href="#stereo_occupancy_grid.StereoHeightMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that represents local occupancy grid with stereo data.</p>
+<dl class="method">
+<dt id="stereo_occupancy_grid.StereoHeightMap.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>points</em>, <em>pose</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_occupancy_grid.StereoHeightMap.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits local occupancy map by given points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>points</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><em>numpy.ndarray</em></a>) – array of points from last stereo frame</li>
+<li><strong>pose</strong> – array with shape (1, 8) that contains synced to <em>points</em> quaternion, translation and timestamp</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>occupancy map</strong> - 2-dimensional array with occupancy data in each cell,</p>
+<p><strong>sx, sy</strong> - shift of local map on global map</p>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><p><strong>occupancy map</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>),</p>
+<p><strong>sx, sy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>)</p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="stereo_occupancy_grid.StereoHeightMap.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>width=80.0</em>, <em>height=80.0</em>, <em>resolution=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_occupancy_grid.StereoHeightMap.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of map with size and resolution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width of map in meters</li>
+<li><strong>height</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – height of map in meters</li>
+<li><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – width and length of single cell in meters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Cell’s resolutions of global (<a class="reference internal" href="#occupancy_grid.OccupancyMap" title="occupancy_grid.OccupancyMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">occupancy_grid.OccupancyMap</span></code></a>)
+and local (<a class="reference internal" href="#occupancy_grid.MultiModalMap" title="occupancy_grid.MultiModalMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">occupancy_grid.MultiModalMap</span></code></a>,
+<a class="reference internal" href="#stereo_occupancy_grid.StereoHeightMap" title="stereo_occupancy_grid.StereoHeightMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StereoHeightMap</span></code></a>) maps must match exactly!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="stereo_occupancy_grid.StereoHeightMap.set_thresholds">
+<code class="descname">set_thresholds</code><span class="sig-paren">(</span><em>pos</em>, <em>over</em><span class="sig-paren">)</span><a class="headerlink" href="#stereo_occupancy_grid.StereoHeightMap.set_thresholds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter for thresholds for detecting obstacles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – positive obstacle threshold</li>
+<li><strong>over</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – overhanging structure threshold</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Complex Passability Model Docs</a><ul>
+<li><a class="reference internal" href="#module-laser_frame_corrector">cloud_corrector.py</a></li>
+<li><a class="reference internal" href="#occupancy-grid-py">occupancy_grid.py</a></li>
+<li><a class="reference internal" href="#stereo-matcher-py">stereo_matcher.py</a></li>
+<li><a class="reference internal" href="#stereo-occupancy-grid-py">stereo_occupancy_grid.py</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="includereadme.html"
+                        title="next chapter">&lt;no title&gt;</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="includereadme.html" title="&lt;no title&gt;"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">complex_passability_model 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ilya Shepel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>
